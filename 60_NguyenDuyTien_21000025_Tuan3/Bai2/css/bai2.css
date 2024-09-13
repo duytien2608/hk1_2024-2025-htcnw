@@ -1,0 +1,159 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.container {
+    height: 800px;
+    width: 1060px;
+    box-sizing: border-box;
+}
+
+header {
+    height: 150px;
+    width: 100%;
+    background-color: #294e79;
+}
+
+section {
+    width: 65%;
+    height: 400px;
+    background-color: rgb(245, 240, 232);
+    float: left;
+}
+
+aside {
+    width: 35%;
+    height: 400px;
+    background-color: rgb(243, 178, 178);
+    float: left;
+}
+
+footer {
+    clear: both;
+    height: 100px;
+    width: 100%;
+    background-color: #294e79;
+}
+
+nav {
+    position: absolute;
+    bottom: 467px;
+    right: 490px;
+}
+
+.menu li {
+    display: inline-table;
+    background-color: #576c85;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
+
+.menu {
+    position: relative;
+    top: -27px;
+    right: -338px;
+    clear: both;
+}
+
+.menu li:hover {
+    background-color: #e673c3;
+}
+
+.menu li .subMenu {
+    display: none;
+    background-color: #576c85;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+}
+
+.menu li:hover .subMenu {
+    display: block;
+}
+
+header img {
+    top: 20px;
+    left: 10px;
+    position: relative;
+}
+
+header h2 {
+    top: 20px;
+    left: 250px;
+    position: absolute;
+    color: white;
+}
+
+header h4 {
+    top: 50px;
+    left: 250px;
+    position: absolute;
+    color: white;
+}
+
+header #frm {
+    position: absolute;
+    top: 10px;
+    right: 150px;
+}
+
+header #frm #txtS {
+    border: 1px solid gray;
+    padding: 2px;
+}
+
+header #frm #btnS {
+    border: 1px solid gray;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: cadetblue;
+}
+
+.menu li:nth-child(4) {
+    position: relative;
+}
+
+.menu li .subMenu li:nth-child(1) {
+    position: absolute;
+    top: 1px;
+    left: -20px;
+    width: 113px;
+}
+
+.menu li .subMenu li:nth-child(2) {
+    position: absolute;
+    top: 52px;
+    left: -20px;
+    width: 113px;
+}
+
+.menu li .subMenu li:nth-child(3) {
+    position: absolute;
+    top: 103px;
+    left: -20px;
+    width: 113px;
+}
+
+footer .end {
+    position: absolute;
+    bottom: 15px;
+    right: 250px;
+}
+
+.end h3 {
+    color: white;
+}
+
+.imagess {
+    top: 170px;
+    left: 170px;
+}

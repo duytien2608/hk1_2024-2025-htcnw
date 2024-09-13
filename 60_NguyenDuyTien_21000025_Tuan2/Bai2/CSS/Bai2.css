@@ -1,0 +1,145 @@
+.container{
+    width: 1000px;
+    height: 992px;
+    margin: 0px auto;
+    padding: 0px;
+    border: 1px solid black;
+}
+header{
+    /* border: 1px solid black; */
+    height: 183px;
+    width: 1000px;
+    background-image: url(../IMG/background.png);
+}
+header .chu{
+    position: absolute;
+    top: 40px;
+    left: 363px;
+    color: rgba(248,244,241,255);
+}
+nav{
+    height: 60px;
+    width: 1000px;
+    border: 1px solid black;
+    background-color: rgba(178,174,171,255);
+}
+nav ul{
+    padding: 0px;
+}
+nav li{
+    float: left;
+    /* line-height: 32px; */
+    text-indent: 43px;
+    list-style-type: none;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    color: black;
+}
+.phan2{
+    /* border: 1px solid black; */
+    width: 1000px;
+    height: 700px;
+    display: flex;
+}
+/* section{
+    width: 600px;
+    height: 700px;
+    border: 1px solid black;
+    position: relative;
+}
+section .a1 article,
+section .a2 article{
+    border: 1px solid black;
+    height: 225px;
+    width: 528px;
+    margin: auto;
+    box-sizing: border-box;
+} */
+section {
+    width: 600px;
+    height: 700px;
+    /* border: 1px solid black; */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section .a1 article,
+section .a2 article {
+    /* border: 1px solid black; */
+    height: 279px;
+    width: 530px;
+    margin: 4px 0 0 0;
+    /* box-sizing: border-box; */
+    /* display: flex; */
+}
+
+/* section .a2 article img{
+    width: 38%;
+    height: 57%;
+} */
+/* aside{
+    border: 1px solid black;
+    width: 400px;
+    height: 700px;
+
+}
+aside .a3 section{
+    border: 1px solid black;
+    width: 200px;
+    height: 300px;
+}
+aside .a4 section{
+    border: 1px solid black;
+    width: 200px;
+    height: 300px;
+} */
+aside {
+    /* border: 1px solid black; */
+    width: 400px;
+    height: 700px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+aside .a3 section,
+aside .a4 section {
+    /* border: 1px solid black; */
+    width: 357px;
+    height: 300px;
+    margin: 20px 0 0 0;
+    box-sizing: border-box;
+}
+aside .a3 section p{
+    font-size: 130%;
+    color: red;
+    margin-left: -9px;
+}
+aside .a3 section li{
+    list-style-type: none;
+    font-size: 105%;
+    line-height: 44px;
+    color: red;
+}
+aside .a4 section p{
+    font-size: 140%;
+    color: red;
+    margin-left: -119px;
+}
+aside .a4 section li{
+    list-style-type: none;
+    font-size: 100%;
+    margin-left: -95px;
+}
+footer{
+    border: 1px solid black;
+    width: 1000px;
+    height: 47px;
+    background-image: url(../IMG/background.png);
+    color: whitesmoke;
+}

@@ -1,0 +1,115 @@
+img {
+  width: 314px;
+  aspect-ratio: auto 314 / 75;
+  height: 75px;
+}
+
+#head {
+  text-align: right;
+}
+
+body {
+  color: brown;
+}
+
+#links{
+  width: 150px;
+  float: left;
+  background-image: url(../IMG/back.jpg);
+  margin-right: 10px;
+  padding: 10px;
+  /* border: 2px solid black; */
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#links a {
+  text-decoration: none;
+  display: block;
+  font-family: sans-serif;
+  color: rgb(0, 127, 230);
+  font-size: 9pt;
+  padding-top: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  color: orange;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+#main {
+  width: 70%;
+  float: left;
+  border-left: 1px solid orange;
+  padding-left: 10px;
+}
+
+/* #firstp:first-letter {
+  float: left;
+  font-size: 400%;
+  line-height: 0.8;
+} */
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+#box ul {
+  list-style-type: circle;
+  margin-left: 20px;
+  padding-left: 0px;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+#box {
+  width: 200px;
+  float: right;
+  background-color: ivory;
+  margin: 5px 0 5px 5px;
+  border: 5px outset orange;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+address {
+  color: orange;
+  font-style: normal;
+  font-variant: small-caps;
+  text-align: center;
+  clear: both;
+  border-top: 1px solid orange;
+}

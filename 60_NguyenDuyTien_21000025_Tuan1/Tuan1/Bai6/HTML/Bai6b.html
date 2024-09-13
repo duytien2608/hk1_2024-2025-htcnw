@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            border-style: outset;
+            box-shadow:  12px 12px 2px 1px rgba(0, 0, 255, .2);
+            max-width: 38%;
+            
+        }
+    </style>
+</head>
+<body class="a" >
+    <fieldset style="width: 350px;">
+        <legend>Your message:</legend>
+        <table with="30px" height="50px">
+            <tr>
+                <td><label for="emailTo">To</label></td>
+                <td><input type="text" name="txtTo" readonly="readonly" id="emailTo" size="20px" value="Example Cafe"></td>
+            </tr>
+
+            <tr>
+                <td><label for="emailFrom">Your email</label></td>
+                <td><input type="text" name="txtFrom" id="emailFrom" size="20px" tabindex="1px" maxlength="250"></td>
+            </tr>
+
+            <tr>
+                <td><label for="emailBody">Message</label></td>
+                <td><textarea name="txtBody" id="emailBody" cols="50" rows="10" tabindex="2"></textarea></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset style="width: 455px;">
+        <legend>How you found us:</legend>
+        <table>
+             <tr>
+                <td>How did you hear of us</td>
+                <td><select>
+                    <option value="google">Google</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="zalo">Zalo</option>
+                    <option value="instagram">Instargram</option>
+                </select></td>
+             </tr>
+             <tr>
+                <td>Newsletter</td>
+                <td><input type="checkbox" name="Newsletter" checked>Ensure this box is checked if you would like to receive email update</td>
+             </tr>
+        </table>
+    </fieldset>
+    <input type="button" value="Send message">
+</body>
+</html>

@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+.outer{
+    width: 80%;
+    height: auto;
+    border: 1px solid brown;
+
+}
+header{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid brown;
+    background-color: rgb(17, 81, 138);
+    color: #ffffff;
+
+}
+header img{
+    /* width: 50px; */
+    height: 100%;
+
+}
+header h1{
+    position: absolute;
+    top:32px;
+    left: 220px;
+}
+header h4{
+    position: absolute;
+    top:69px;
+    left: 220px;
+}
+header form{
+    position: absolute;
+    top:4px;
+    right: 150px;
+}
+header form input{
+    background-color: #071546;
+    color: #ffffff;
+    border: 1px solid yellow;
+}
+nav ul>li
+{
+    display: inline-block;
+    /* width: 100px; */
+    background-color: #3e80d6;
+    padding: 5px;
+    line-height: 20px;
+}
+nav ul>li a{
+    color: white;
+    text-decoration: none;
+}
+nav ul{
+    position: absolute;
+    top:70px;
+    left: 50%;
+
+}
+
+section{
+    width: 70%;
+    height: auto ;
+    border-right: 1px solid brown;
+    float: left;
+    
+
+}
+aside
+{
+    width: 30%;
+    height: 450px ;
+    /* border: 1px solid brown; */
+    float: left;
+    padding: 20px;
+}
+footer
+{
+    clear: both;
+    width: 100%;
+    line-height: 50px;
+    border-top: 1px solid brown;
+    background-color: #071546;
+    color: #ffffff;
+    vertical-align: middle;
+
+}
+section h1,aside h1{
+    padding: 20px;
+    color: #c2bbbb;
+    border-bottom: 1px dashed  #c2bbbb;
+}
+article.left
+{
+    width: 60%;
+    height: auto;
+    /* border: 1px solid brown; */
+    float: left;
+    padding:20px;
+}
+article.main
+{
+    width: 40%;
+    height: 329px;
+    border: 1px solid brown;
+    float: left;
+
+}
+article.left form .detail{
+    width: 40%;
+    float: left;
+    margin: 10px;
+
+}
+article.left form .detail input,  article.left form  .mess textarea, input[type=button]{
+    background-color: #f3f1f1;
+    border: 1px solid #a39a9a;
+    padding: 3px;
+}
+article.left form  .mess
+{
+    clear: both;
+    width: 100%;
+}
+article.left  p{
+    color: orangered;
+    text-shadow: 4px 4px 4px green;
+    font-style: italic;
+}

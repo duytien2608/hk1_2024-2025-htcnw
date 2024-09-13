@@ -1,0 +1,66 @@
+.wrapper {
+    border: 1px solid red;
+    height: 600px;
+    width: 700px;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+header {
+    width: 700px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+header h1 {
+    color: red;
+    text-shadow: 10px 10px 10px rgb(224, 128, 128);
+    text-align: center;
+}
+
+nav {
+    width: 700px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.menu li {
+    list-style-type: none;
+    float: left;
+    margin-right: 10px;
+}
+
+.menu li>a {
+    text-decoration: none;
+}
+
+section {
+    width: 700px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+section h1 {
+    width: 700px;
+    height: 50px;
+    color: red;
+    margin: auto;
+    background-color: bisque;
+}
+
+.phan2 {
+    width: 500px;
+    height: 300px;
+}
+
+.phan1 h1 {
+    line-height: 50px;
+}
+
+.phan2 {
+    line-height: 50px;
+}
+
+.phan2 li {
+    line-height: 20px;
+}
