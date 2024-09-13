@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var nam = window.prompt("Nhập năm cần tính: ");
+      if (nam != "") {
+        if (nam % 400 == 0 || (nam % 100 != 0 && nam % 4 == 0)) {
+          document.write(nam + " là năm nhuận");
+        } else {
+          document.write(nam + " là năm không nhuận.");
+        }
+      } else {
+        document.write("Không được bỏ trống.");
+      }
+    </script>
+  </body>
+</html>
