@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Picture and Change Size</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: auto 0px;
+        }
+
+        body {
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 20px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/anh1.png" alt="" id="image" />
+    <button id="changeImg">Change Image</button>
+    <button id="resize">Resize Image</button>
+    <script>
+        function changeImage() {
+            var img = document.getElementById("image");
+            if (img.src.includes("anh2.png")) {
+                img.src = "../60_NguyenDuyTien_21000025_BTLT_JS/images/anh1.png";
+            } else {
+                img.src = "../60_NguyenDuyTien_21000025_BTLT_JS/images/anh2.png";
+            }
+        }
+
+        function resizeImg() {
+            var img = document.getElementById("image");
+            if (img.style.width == "20px") {
+                img.style.width = "300px";
+            } else {
+                img.style.width = "20px";
+            }
+        }
+        document
+            .getElementById("changeImg")
+            .addEventListener("click", changeImage);
+
+        document.getElementById("resize").addEventListener("click", resizeImg);
+    </script>
+</body>
+
+</html>
