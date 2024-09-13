@@ -1,159 +1,161 @@
 * {
-    margin: 0px auto;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
 }
-
-.container {
-    height: 800px;
-    width: 1060px;
-    box-sizing: border-box;
+.outer {
+  width: 80%;
+  height: auto;
+  border: 1px solid brown;
 }
-
 header {
-    height: 150px;
-    width: 100%;
-    background-color: #294e79;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid brown;
+  background-color: rgb(17, 81, 138);
+  color: #ffffff;
+}
+header img {
+  /* width: 50px; */
+  height: 100%;
+}
+header h1 {
+  position: absolute;
+  top: 32px;
+  left: 220px;
+}
+header h4 {
+  position: absolute;
+  top: 69px;
+  left: 220px;
+}
+header form {
+  position: absolute;
+  top: 4px;
+  right: 150px;
+}
+header form input {
+  background-color: #071546;
+  color: #ffffff;
+  border: 1px solid yellow;
+}
+nav ul > li {
+  display: inline-block;
+  /* width: 100px; */
+  background-color: #3e80d6;
+  padding: 5px;
+  line-height: 20px;
+}
+nav ul > li a {
+  color: white;
+  text-decoration: none;
+}
+nav ul {
+  position: absolute;
+  top: 70px;
+  left: 50%;
 }
 
 section {
-    width: 65%;
-    height: 400px;
-    background-color: rgb(245, 240, 232);
-    float: left;
+  width: 70%;
+  height: auto;
+  border-right: 1px solid brown;
+  float: left;
 }
-
 aside {
-    width: 35%;
-    height: 400px;
-    background-color: rgb(243, 178, 178);
-    float: left;
+  width: 30%;
+  height: 450px;
+  /* border: 1px solid brown; */
+  float: left;
+  padding: 20px;
 }
-
 footer {
-    clear: both;
-    height: 100px;
-    width: 100%;
-    background-color: #294e79;
+  clear: both;
+  width: 100%;
+  line-height: 50px;
+  border-top: 1px solid brown;
+  background-color: #071546;
+  color: #ffffff;
+  vertical-align: middle;
 }
-
-nav {
-    position: absolute;
-    bottom: 467px;
-    right: 490px;
+section h1,
+aside h1 {
+  padding: 20px;
+  color: #c2bbbb;
+  border-bottom: 1px dashed #c2bbbb;
 }
-
-.menu li {
-    display: inline-table;
-    background-color: #576c85;
-    height: 50px;
-    line-height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+article.left {
+  width: 60%;
+  height: auto;
+  /* border: 1px solid brown; */
+  float: left;
+  padding: 20px;
 }
-
-.menu li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
+article.main {
+  width: 40%;
+  height: 329px;
+  border: 1px solid brown;
+  float: left;
 }
-
-.menu {
-    position: relative;
-    top: -27px;
-    right: -338px;
-    clear: both;
+article.left form .detail {
+  width: 40%;
+  float: left;
+  margin: 10px;
+}
+article.left form .detail input,
+article.left form .mess textarea,
+input[type="button"] {
+  background-color: #f3f1f1;
+  border: 1px solid #a39a9a;
+  padding: 3px;
+}
+article.left form .mess {
+  clear: both;
+  width: 100%;
+}
+article.left p {
+  color: orangered;
+  text-shadow: 4px 4px 4px green;
+  font-style: italic;
 }
 
 .menu li:hover {
-    background-color: #e673c3;
+  background-color: #e673c3;
 }
 
 .menu li .subMenu {
-    display: none;
-    background-color: #576c85;
-    height: 50px;
-    line-height: 50px;
-    position: absolute;
+  display: none;
+  background-color: #576c85;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
 }
 
 .menu li:hover .subMenu {
-    display: block;
+  display: block;
 }
-
-header img {
-    top: 20px;
-    left: 10px;
-    position: relative;
-}
-
-header h2 {
-    top: 20px;
-    left: 250px;
-    position: absolute;
-    color: white;
-}
-
-header h4 {
-    top: 50px;
-    left: 250px;
-    position: absolute;
-    color: white;
-}
-
-header #frm {
-    position: absolute;
-    top: 10px;
-    right: 150px;
-}
-
-header #frm #txtS {
-    border: 1px solid gray;
-    padding: 2px;
-}
-
-header #frm #btnS {
-    border: 1px solid gray;
-    padding: 2px;
-    border-radius: 50%;
-    background-color: cadetblue;
-}
-
 .menu li:nth-child(4) {
-    position: relative;
+  position: relative;
 }
 
 .menu li .subMenu li:nth-child(1) {
-    position: absolute;
-    top: 1px;
-    left: -20px;
-    width: 113px;
+  position: absolute;
+  top: -38px;
+  left: -78px;
+  width: 155px;
 }
 
 .menu li .subMenu li:nth-child(2) {
-    position: absolute;
-    top: 52px;
-    left: -20px;
-    width: 113px;
+  position: absolute;
+  top: -7px;
+  left: -78px;
+  width: 155px;
 }
 
 .menu li .subMenu li:nth-child(3) {
-    position: absolute;
-    top: 103px;
-    left: -20px;
-    width: 113px;
-}
-
-footer .end {
-    position: absolute;
-    bottom: 15px;
-    right: 250px;
-}
-
-.end h3 {
-    color: white;
-}
-
-.imagess {
-    top: 170px;
-    left: 170px;
+  position: absolute;
+  top: 24px;
+  left: -78px;
+  width: 155px;
 }
