@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function hamTinhChanLe(a, b) {
+        var total = a + b;
+        if (total % 2 == 0) {
+          document.write(
+            "Tổng của " + a + " + " + b + " = " + total + " là số chẵn."
+          );
+        } else {
+          document.write(
+            "Tổng của " + a + " + " + b + " = " + total + " là số lẻ."
+          );
+        }
+      }
+      var a = parseInt(window.prompt("Nhập a: "));
+      var b = parseInt(window.prompt("Nhập b: "));
+
+      hamTinhChanLe(a, b);
+    </script>
+  </body>
+</html>
