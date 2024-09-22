@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .phan1{
+            background-color: rgb(212, 255, 255);
+        }
+        .phan1 p{
+            font-size: 15px;
+            color: gray;
+        }
+        #mm, #yy{
+            width: 60px;
+        }
+        #number{
+            width: 250px;
+        }
+        #cvc{
+            width: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="phan1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><h4>Checkout</h4></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-0"><h5>Product 1<p>Lorem ipsum dolor sit amet</p></h5></td>
+                        <td class="border-0"></td>
+                        <td class="border-0"><h5>$200</h5></td>
+                    </tr>
+                    <tr>
+                        <td class="border-0"><h5>Product 2<p>Lorem ipsum dolor sit amet</p></h5></td>
+                        <td class="border-0"></td>
+                        <td class="border-0"><h5>$120</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>Total</h5></td>
+                        <td></td>
+                        <td><h5>$320</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="phan2">
+            <form action="">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-0"><h4>Credit Card Details</h4></th>
+                            <th class="border-0"></th>
+                            <th class="border-0"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                CARD HOLDER
+                            </td>
+                            <td></td>
+                            <td>EXPIRATION DATE</td>
+                        </tr>
+                        <tr>
+                            <td class="border-0">
+                                <input type="text" placeholder="Card Holder">
+                            </td>
+                            <td class="border-0"></td>
+                            <td class="border-0">
+                                <input type="text" name="" id="mm" placeholder="MM"> /
+                                <input type="text" name="" id="yy" placeholder="YY">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-0">CARD NUMBER</td>
+                            <td class="border-0"></td>
+                            <td class="border-0">CVC</td>
+                        </tr>
+                        <tr>
+                            <td class="border-0"><input type="text" name="" id="number" placeholder="Card Number"></td>
+                            <td class="border-0"></td>
+                            <td class="border-0"><input type="text" name="" id="cvc" placeholder="CVC"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Proceed</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

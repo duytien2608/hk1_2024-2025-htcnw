@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Login
+        </button>
+    
+        <div class="modal" role="dialog" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item border-0">
+                                <a class="nav-link active" id="dk" data-toggle="tab" href="#dk" role="tab" aria-controls="dangnhap" aria-selected="false">ĐĂNG NHẬP</a>
+                            </li>
+                            <li>
+                                <a class="nav-link active" id="dn" data-toggle="tab" href="#dn" role="tab" aria-controls="dangky" aria-selected="false">ĐĂNG KÝ</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="dk" role="tabpanel" aria-labelledby="dangnhap">
+                                <form action="">
+                                    <div class="form-group">
+                                        <label for="">Usename*</label>
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Password</label>
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane" id="dn" role="tabpanel" aria-labelledby="dangky">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="text" name="" id="" class="form-control" placeholder="Họ tên">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="text" name="" id="" class="form-control" placeholder="Số điện thoại">
+                                        </div>
+                                        <div class="form-group col">
+                                            <select name="" id="" class="form-control">
+                                                <option value="">Chọn giới tính</option>
+                                                <option value="">Nam</option>
+                                                <option value="">Nữ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="email" name="" id="" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="password" class="form-control" placeholder="Mật khẩu">
+                                        </div>
+                                        <div class="form-group col">
+                                            <input type="password" class="form-control" placeholder="Xác nhận mật khẩu">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#myTab a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+</body>
+</html>
