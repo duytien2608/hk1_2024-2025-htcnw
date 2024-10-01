@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        [class*=col-] {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #anh1 {
+            width: 100%;
+            height: 200px;
+        }
+
+        #anh2 {
+            width: 100%;
+            height: 200px;
+        }
+
+        ul li {
+            width: 150px;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            $("#btnOpenDK").click(function (e) {
+                $("#myModal").modal();
+            });
+
+            function kiemTraMa() {
+                var mauKT = /[0-9]{9}$/;
+                var chuoi = $("#txtMa").val();
+                var kq = mauKT.test(chuoi);
+                if (kq == false) {
+                    alert("Nhap sai roi");
+                } else {
+                    alert("Nhap dung roi");
+                }
+            }
+
+            $("#txtMa").blur(kiemTraMa);
+
+            function kiemTraHT() {
+                var mauKT = /^[A-Z]{1}[a-z]+(\s[A-Z]{1}[a-z]*)+$/;
+                var chuoi = $("#txtHT").val();
+                var kq = mauKT.test(chuoi);
+                if (kq == false) {
+                    alert("Nhap sai roi");
+                } else {
+                    alert("Nhap dung roi");
+                }
+            }
+
+            $("#txtHT").blur(kiemTraHT);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-md-2">
+                <img src="../img/logo.img" alt="" id="anh2">
+            </div>
+            <div class="col-12 col-md-10">
+                <img src="../img/AnhLogo.jfif" alt="" id="anh1">
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar nav-pills navbar-expand bg-info bg-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">HOME</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">CONTACT</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">SERVICES</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" id="btnOpenDK">MOBI</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">INTERNET</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">TIVI</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">ABOUT</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">HELP</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td>Ma Sinh vien</td>
+                        <td>Ho ten</td>
+                        <td>Ngay sinh</td>
+                        <td>Que quan</td>
+                        <td>Ghi chu</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123456789</td>
+                        <td>Le A</td>
+                        <td>01/01/2011</td>
+                        <td>Can Tho</td>
+                        <td>Lop moi</td>
+                    </tr>
+                    <tr>
+                        <td>987654321</td>
+                        <td>Nguyen Duy Tien</td>
+                        <td>26/05/2003</td>
+                        <td>Dak Lak</td>
+                        <td>Lop moi</td>
+                    </tr>
+                    <tr>
+                        <td>1234567087</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="row">
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Danh sach dang ky</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="formMa">Ma Sinh vien</label>
+                                    <input type="text" class="form-control" id="txtMa" aria-describedby="txtMa">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forHT">Ho ten</label>
+                                    <input type="text" class="form-control" id="txtHT">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
