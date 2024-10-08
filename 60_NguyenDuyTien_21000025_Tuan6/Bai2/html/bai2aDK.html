@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        table, tr,td{
+            border: 1px solid black;
+        }
+        input{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <form action="">
+        <table class="table table-bordered-2">
+            <tr>
+                <td colspan="2"><h1 class="text-center">Thông Tin Đăng Ký</h1></td>
+            </tr>
+            <tr>
+                <td><label for="fullname">Họ tên</label></td>
+                <td><input type="text" name="" id="fullname"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Mật khẩu</label></td>
+                <td><input type="password" name="" id="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="button" onclick="SubmitForm()">Nhập</button></td>
+            </tr>
+        </table>
+       </form>
+    </div>
+    <script>
+        function SubmitForm() {
+            var fullname = document.getElementById("fullname").value;
+            var password = document.getElementById("password").value;
+
+            var encodedFullname = encodeURIComponent(fullname);
+            var encodedPassword = encodeURIComponent(password);
+
+            window.location.href = "bai2aDN.html?fullname=" + encodedFullname + "&password=" + encodedPassword; 
+        }
+    </script>
+</body>
+</html>

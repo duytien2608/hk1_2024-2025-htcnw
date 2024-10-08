@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" name="mainForm">
+            <div class="" style="border: 1px solid #000; height: 200px; width: 330px; text-align: center; margin: 0 auto;">
+                PHÉP TÍNH CƠ BẢN <br>
+                <label for="so1">Nhập số thứ 1</label>
+                <input type="text" name="so1" onkeyup="checkNumber(this)"> 
+                <span id="error1" style="color: red; display: none;">(*)</span><br>
+                <label for="so2">Nhập số thứ 2</label>
+                <input type="text" name="so2" onkeyup="checkNumber(this)">
+                <span id="error2" style="color: red; display: none;">(*)</span><br>
+                <input style="margin-top:20px;" type="button" value="Cong" onclick="javascript: calcsum()">
+                <input type="button" value="Tru" onclick="javascript: calctru()">
+                <input type="button" value="Nhan" onclick="javascript: calcnhan()">
+                <input type="button" value="Chia" onclick="javascript: calcchia()"> <br>
+                
+                <label for="ketqua">Kết quả</label>
+                <input type="text" name="ketqua"> <br>
+            </div>
+        </form>
+    </div>
+    <script>
+        function checkNumber(input) {
+            var value = input.value;
+            var errorSpanId = input.name === 'so1' ? 'error1' : 'error2';
+            var errorSpan = document.getElementById(errorSpanId);
+            
+            if (isNaN(value)) {
+                errorSpan.style.display = 'inline';
+            } else {
+                errorSpan.style.display = 'none';
+            }
+        }
+
+        function calcsum(){
+            var value1 = parseInt(document.mainForm.so1.value);
+            var value2 = parseInt(document.mainForm.so2.value);
+            
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("(*) Vui lòng nhập số hợp lệ.");
+                return;
+            }
+            
+            var sum = value1 + value2;
+            document.mainForm.ketqua.value = sum;
+        }
+
+        function calctru(){
+            var value1 = parseInt(document.mainForm.so1.value);
+            var value2 = parseInt(document.mainForm.so2.value);
+            
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("(*) Vui lòng nhập số hợp lệ.");
+                return;
+            }
+            
+            var tru = value1 - value2;
+            document.mainForm.ketqua.value = tru;
+        }
+
+        function calcnhan(){
+            var value1 = parseInt(document.mainForm.so1.value);
+            var value2 = parseInt(document.mainForm.so2.value);
+            
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("(*) Vui lòng nhập số hợp lệ.");
+                return;
+            }
+            
+            var nhan = value1 * value2;
+            document.mainForm.ketqua.value = nhan;
+        }
+
+        function calcchia(){
+            var value1 = parseInt(document.mainForm.so1.value);
+            var value2 = parseInt(document.mainForm.so2.value);
+            
+            if (isNaN(value1) || isNaN(value2)) {
+                alert("(*) Vui lòng nhập số hợp lệ.");
+                return;
+            }
+            
+            if (value2 === 0) {
+                alert("(*) Không thể chia cho 0.");
+                return;
+            }
+            
+            var chia = value1 / value2;
+            document.mainForm.ketqua.value = chia;
+        }
+    </script>
+</body>
+</html>

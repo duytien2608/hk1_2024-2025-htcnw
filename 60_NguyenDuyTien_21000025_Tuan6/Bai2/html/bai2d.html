@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .checkbox{
+            border: 1px solid black;
+            margin: 0px auto;
+            padding: 0px;
+            width: 45%;
+        }
+        form{
+            padding-left: 100px;
+        }
+        p{
+            padding-left: 20px;
+        }
+        .button{
+            padding-left: 74px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkbox" id="checkboxBox">
+            <h2 class="text-center">FORM ĐỊNH DẠNG</h2>
+            <form id="formatForm">
+                <div>
+                    <label for="">Họ và tên</label>
+                    <input type="text" name="" id="">
+                </div>
+                <div>
+                    <label for="">Chọn</label>
+                    <input type="radio" name="format" id="backgroundRadio"> Background 
+                    <input type="radio" name="format" id="fontRadio"> Font
+                </div>
+                <div>
+                    <label for="">Chọn màu</label>
+                    <select name="" id="colorSelect">
+                        <option value="">Chọn màu...</option>
+                        <option value="red">Đỏ</option>
+                        <option value="yellow">Vàng</option>
+                        <option value="green">Xanh lá</option>
+                    </select>
+                </div>
+                <div class="button">
+                    <button type="button" onclick="changeColor()">Đổi màu</button>
+                    <button type="button" onclick="resetColors()">Hủy</button>
+                </div>
+            </form>
+            <p>
+                You can direct link the hyperlink with the file if you know the <br>
+                address but this is limited by the browser. eg. if pdf reader is <br>
+                installed on the client then the pdf will not be downloaded <br>
+                instead it will be shown. A good solution would be to have a <br>
+                separate page for downloading files. Just pass filename in <br> 
+                querystring and in the pageload event just output the file in <br>
+                response stream. This way you can use url say dwnld.aspx? <br>
+                filename.ext 
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function changeColor() {
+            var selectedColor = document.getElementById("colorSelect").value;
+            var isBackgroundChecked = document.getElementById("backgroundRadio").checked;
+            var isFontChecked = document.getElementById("fontRadio").checked;
+
+            if (isBackgroundChecked) {
+                document.getElementById("checkboxBox").style.backgroundColor = selectedColor;
+            }
+
+            if (isFontChecked) {
+                var elements = document.getElementsByClassName("checkbox")[0].getElementsByTagName("*");
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.color = selectedColor;
+                }
+            }
+        }
+
+        function resetColors() {
+            document.getElementById("checkboxBox").style.backgroundColor = "";
+            document.getElementById("backgroundRadio").checked = false;
+            document.getElementById("fontRadio").checked = false;
+            document.getElementById("colorSelect").selectedIndex = 0;
+
+            // Reset màu chữ trong .checkbox
+            var elements = document.getElementsByClassName("checkbox")[0].getElementsByTagName("*");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.color = "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="../img/b1.jpg" alt="Image" width="400" height="300">
+        <br>
+        <button onclick="startSlideshow()">Play</button>
+        <button onclick="stopSlideshow()">Stop</button>
+    </div>
+
+    <script>
+        var images = ['b1.jpg', 'b2.jpg', 'b3.jpg', 'b4.jpg', 'b5.jpg', 'b6.jpg', 'b7.jpg', 'b8.jpg', 'b9.jpg', 'b10.jpg'];
+        var currentIndex = 0;
+        var timeout;
+
+        function startSlideshow() {
+            if (timeout) return;
+            function changeImage() {
+                document.getElementById('image').src = "../img/" + images[currentIndex];
+                currentIndex = (currentIndex + 1) % images.length;
+                timeout = setTimeout(changeImage, 1000); // Thay đổi hình sau mỗi 1 giây (1000ms)
+            }
+
+            changeImage();
+        }
+
+        function stopSlideshow() {
+            clearTimeout(timeout);
+            timeout = null;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        [class*=col-]{
+            padding-left: 0px;
+            padding-right: 0px;
+            border: 1px solid black;
+        }
+        .a{
+            text-align: right;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('#registrationForm').submit(function(event) {
+                var isValid = true;
+
+                var username = $('#txtDN').val();
+                if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                    $('#txtDN').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtDN').next('.error').text('');
+                }
+
+                var password = $('#txtMK').val();
+                if (password.length < 8) {
+                    $('#txtMK').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtMK').next('.error').text('');
+                }
+                if (!/[0-9]/.test(password)) {
+                    $('#txtMK').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtMK').next('.error').text('');
+                }
+                if (!/[A-Z]/.test(password)) {
+                    $('#txtMK').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtMK').next('.error').text('');
+                }
+                if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                    $('#txtMK').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtMK').next('.error').text('');
+                }
+
+                var confirmPassword = $('#txtXNMK').val();
+                if (confirmPassword !== password) {
+                    $('#txtXNMK').next('.error').text('*');
+                    isValid = false;
+                } else {
+                    $('#txtXNMK').next('.error').text('');
+                }
+
+                var fullName = $('#txtName').val();
+                if (!/^[A-Z][a-z]+\s[A-Z][a-z]+$/.test(fullName)) {
+                    $('#txtName').next('.error').text('Sai');
+                    isValid = false;
+                } else {
+                    $('#txtName').next('.error').text('');
+                }
+
+                var dob = new Date($('#txtDOB').val());
+                var today = new Date();
+                var age = today.getFullYear() - dob.getFullYear();
+                if (age < 16) {
+                    $('#txtDOB').next('.error').text('Tuổi phải lớn hơn hoặc bằng 16.');
+                    isValid = false;
+                } else {
+                    $('#txtDOB').next('.error').text('');
+                }
+
+                var address = $('#txtDC').val();
+                if (address.trim() === '') {
+                    $('#txtDC').next('.error').text('Địa chỉ không được để trống.');
+                    isValid = false;
+                } else {
+                    $('#txtDC').next('.error').text('');
+                }
+
+                var phoneNumber = $('#txtDT').val();
+                if (!/^0(9|3|7|6|5|4)\d{8}$/.test(phoneNumber)) {
+                    $('#txtDT').next('.error').text('Phải là số');
+                    isValid = false;
+                } else {
+                    $('#txtDT').next('.error').text('');
+                }
+
+                var email = $('#txtEmail').val();
+                if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+                    $('#txtEmail').next('.error').text('Email không hợp lệ.');
+                    isValid = false;
+                } else {
+                    $('#txtEmail').next('.error').text('');
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="registrationForm">
+            <div class="row border-0">
+                <div class="col-md-8 ">
+                    <h1 class="text-center">ĐĂNG KÝ TÀI KHOẢNG</h1> <br>
+                    <table class="table ">
+                        <tr>
+                            <td class="text-right">Tên đăng nhập: </td>
+                            <td><input type="text" id="txtDN" placeholder="txtDN" class="error"><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Mật Khẩu: </td>
+                            <td><input type="password" name="" id="txtMK" placeholder="txtMK" class="error"><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Nhập lại mật khẩu: </td>
+                            <td><input type="password" name="" id="txtXNMK" placeholder="txtXNMK" class="error"><span class="error"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row border-0">
+                <div class="col-md-8">
+                    <h4 class="text-center">THÔNG TIN CÁ NHÂN</h4> <br>
+                    <table class="table">
+                        <tr>
+                            <td class="text-right">Họ và tên:</td>
+                            <td><input type="text" name="" id="txtName" placeholder="txtName" class="error"><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td class=" match-parent text-right">Ngày sinh:</td>
+                            <td><input type="date" name="" id="txtDOB" class="error"><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Giới tính: </td>
+                            <td>
+                                <input type="radio" name="gender" id="male">Nam
+                                <input type="radio" name="gender" id="female">Nữ
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Địa chỉ: </td>
+                            <td><input type="text" name="" id="txtDC" placeholder="txtDC"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Điện thoại: </td>
+                            <td><input type="number" name="" id="txtDT" placeholder="txtDT" class="error"><span class="error"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Email: </td>
+                            <td><input type="email" name="" id="txtEmail" placeholder="txtEmail" class="error"><span class="error"></span></td>
+                        </tr>
+                    </table>
+                    <div class="nut text-center">
+                        <button type="submit">Đăng ký</button>
+                        <button type="reset">Huỷ</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+        }
+        h1 { 
+            color: pink; 
+        }
+        p { 
+            font-size: 16px; 
+            text-align: center;
+        }
+        table,tr, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-bordered-1">
+            <tr>
+                <td colspan="3"><h1 class="text-center">Thông tin sinh viên</h1></td>
+            </tr>
+            <tr>
+                <td><p><strong>MSSV</strong> </p></td>
+                <td><p><strong>Tên</strong> </p></td>
+                <td><p><strong>Lớp</strong> </p></td>
+            </tr>
+            <tr>
+                <td><span id="ma_so_sv"></span></td>
+                <td><span id="ho_ten"></span></td>
+                <td><span id="lop"></span></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <script>
+        var maSoSV = prompt("Nhập mã số SV:");
+        var hoTen = prompt("Nhập họ tên:");
+        var lop = prompt("Nhập lớp:");
+
+        document.getElementById("ma_so_sv").textContent = maSoSV;
+        document.getElementById("ho_ten").textContent = hoTen;
+        document.getElementById("lop").textContent = lop;
+    </script>
+</body>
+</html>

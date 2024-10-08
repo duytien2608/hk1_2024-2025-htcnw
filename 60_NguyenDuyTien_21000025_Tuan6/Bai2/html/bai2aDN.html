@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="2"><h2 class="text-center">Thông Tin Đăng Nhập</h2></td>
+            </tr>
+            <tr>
+                <td class="w-25">UserName</td>
+                <td><span id="userName"></span></td>
+            </tr>
+            <tr>
+                <td>PassWord</td>
+                <td><span id="userPassword"></span></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var fullName = urlParams.get('fullname');
+        var password = urlParams.get('password');
+
+        document.getElementById('userName').innerText = fullName;
+        document.getElementById('userPassword').innerText = password;
+    </script>
+</body>
+</html>

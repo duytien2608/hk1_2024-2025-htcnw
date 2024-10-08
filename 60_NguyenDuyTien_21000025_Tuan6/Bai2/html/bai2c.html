@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <p>Chọn loại cafe:</p>
+        <form id="coffeeForm">
+            <input type="checkbox" name="coffee" id="trungnguyen"> <label for="trungnguyen">Trung Nguyen</label> <br>
+            <input type="checkbox" name="coffee" id="mekong"> <label for="mekong">Me Kong</label> <br>
+            <input type="checkbox" name="coffee" id="newlife"> <label for="newlife">New life</label> <br>
+            <input type="checkbox" name="coffee" id="oceanblue"> <label for="oceanblue">Ocean Blue</label> <br>
+            <input type="checkbox" name="coffee" id="bluespace"> <label for="bluespace">Blue Space</label> <br>
+            <input type="checkbox" name="coffee" id="window"> <label for="window">Window</label> <br>
+            <button type="button" onclick="showSelectedCoffees()">Chọn</button>
+        </form>
+        <p id="selectedCoffeesText">Bạn chọn cafe:</p>
+        <div id="selectedCoffees"></div>
+    </div>
+
+    <script>
+        function showSelectedCoffees() {
+            var checkboxes = document.querySelectorAll('input[name="coffee"]');
+            var selectedCoffeesDiv = document.getElementById('selectedCoffees');
+            var selectedCoffees = [];
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    var labelId = checkbox.id;
+                    var label = document.querySelector('label[for="' + labelId + '"]');
+                    selectedCoffees.push(label.textContent);
+                }
+            });
+            document.getElementById('selectedCoffeesText').textContent = 'Bạn chọn cafe: ';
+            selectedCoffeesDiv.textContent = selectedCoffees.join(', ');
+        }
+    </script>
+</body>
+</html>

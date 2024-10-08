@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function(){
+        var formData = localStorage.getItem('formData');
+        if(formData){
+            var html = '<table class="table table-bordered">';
+            var formDataArray = formData.split('&');
+            for(var i = 0; i < formDataArray.length; i++){
+                var data = formDataArray[i].split('=');
+                var name = data[0];
+                var value = decodeURIComponent(data[1]);
+                if (name === 'full_name') {
+                    value = value.replace(/%20/g, ' ');
+                } else if (name === 'address') {
+                    value = value.replace(/%2C/g, ',').replace(/%C6%B0/g, 'u').replace(/%C6%A1/g, 'o');
+                }
+                html += '<tr><td>' + name.replace(/_/g, ' ') + '</td><td>' + value + '</td></tr>';
+            }
+            html += '</table>';
+            $('#registrationDetails').html(html);
+        } else {
+            $('#registrationDetails').html('<p>Không có thông tin đăng ký nào được tìm thấy.</p>');
+        }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Thông Tin Đăng Ký</h3>
+                <div id="registrationDetails">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Tên đang nhập</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Mật khẩu</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Xác nhận mật khẩu</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Email khác</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sở thích</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
