@@ -1,0 +1,32 @@
+[class*=col-]{
+    padding: 0px;
+    margin: 0px;
+}
+
+.row ul>li{
+    padding: 5px;
+}
+#phan2{
+    background-color: rgba(9,57,77,255);
+    width: 1218px;
+}
+.row h1{
+    padding-left: 40%;
+    margin-top: 25px;
+}
+
+.row img{
+    width: 80%;
+    padding-left: 40px;
+}
+.up{
+    padding-left: 50%;
+}
+.down{
+    padding-left: 53%;
+    margin-top: 5px;
+}
+
+.write{
+    padding: 22px;
+}
