@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,19 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.bundle.js"></script>
     <style>
-        [class*=col-]{
+        [class*=col-] {
             padding-left: 0px;
             padding-right: 0px;
             border: 1px solid black;
         }
-        .a{
+
+        .a {
             text-align: right;
         }
     </style>
     <script>
-        $(document).ready(function() {
-            $('#registrationForm').submit(function(event) {
+        $(document).ready(function () {
+            $('#registrationForm').submit(function (event) {
                 var isValid = true;
 
                 var username = $('#txtDN').val();
@@ -114,24 +116,28 @@
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <form action="" id="registrationForm">
             <div class="row border-0">
                 <div class="col-md-8 ">
-                    <h1 class="text-center">ĐĂNG KÝ TÀI KHOẢNG</h1> <br>
+                    <h1 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h1> <br>
                     <table class="table ">
                         <tr>
                             <td class="text-right">Tên đăng nhập: </td>
-                            <td><input type="text" id="txtDN" placeholder="txtDN" class="error"><span class="error"></span></td>
+                            <td><input type="text" id="txtDN" placeholder="txtDN" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-right">Mật Khẩu: </td>
-                            <td><input type="password" name="" id="txtMK" placeholder="txtMK" class="error"><span class="error"></span></td>
+                            <td><input type="password" name="" id="txtMK" placeholder="txtMK" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-right">Nhập lại mật khẩu: </td>
-                            <td><input type="password" name="" id="txtXNMK" placeholder="txtXNMK" class="error"><span class="error"></span></td>
+                            <td><input type="password" name="" id="txtXNMK" placeholder="txtXNMK" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                     </table>
                 </div>
@@ -142,7 +148,8 @@
                     <table class="table">
                         <tr>
                             <td class="text-right">Họ và tên:</td>
-                            <td><input type="text" name="" id="txtName" placeholder="txtName" class="error"><span class="error"></span></td>
+                            <td><input type="text" name="" id="txtName" placeholder="txtName" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                         <tr>
                             <td class=" match-parent text-right">Ngày sinh:</td>
@@ -161,11 +168,13 @@
                         </tr>
                         <tr>
                             <td class="text-right">Điện thoại: </td>
-                            <td><input type="number" name="" id="txtDT" placeholder="txtDT" class="error"><span class="error"></span></td>
+                            <td><input type="number" name="" id="txtDT" placeholder="txtDT" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                         <tr>
                             <td class="text-right">Email: </td>
-                            <td><input type="email" name="" id="txtEmail" placeholder="txtEmail" class="error"><span class="error"></span></td>
+                            <td><input type="email" name="" id="txtEmail" placeholder="txtEmail" class="error"><span
+                                    class="error"></span></td>
                         </tr>
                     </table>
                     <div class="nut text-center">
@@ -177,4 +186,5 @@
         </form>
     </div>
 </body>
+
 </html>

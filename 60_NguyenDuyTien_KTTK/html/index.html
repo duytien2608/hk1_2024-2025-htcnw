@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/kiemtra.css">
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const date = document.getElementById("date").value;
+            const email = document.getElementById("email").value;
+            const flowerType = document.getElementById("flowerType").value;
+            const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+            const today = new Date().toISOString().split("T")[0];
+
+            const namePattern = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+            if (!namePattern.test(name)) {
+                alert("Họ và Tên phải có ít nhất 2 từ và ký tự đầu tiên của mỗi từ phải được viết hoa.");
+                return false;
+            }
+
+            const phonePattern = /^0\d{3}\.\d{3}\.\d{3}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Số Điện Thoại phải theo mẫu 0XXX.XXX.XXX.");
+                return false;
+            }
+
+            if (date <= today) {
+                alert("Ngày Đặt phải sau ngày hiện tại.");
+                return false;
+            }
+
+            const emailPattern = /^[A-Za-z0-9._%+-]{3,}@iuh\.edu\.vn$/;
+            if (!emailPattern.test(email)) {
+                alert("Email phải theo mẫu name_email@iuh.edu.vn.");
+                return false;
+            }
+
+            // If validation passes, add to the table
+            addOrderToTable(name, phone, date, email, flowerType, paymentType);
+
+            // Clear form inputs
+            document.getElementById("name").value = '';
+            document.getElementById("phone").value = '';
+            document.getElementById("date").value = '';
+            document.getElementById("email").value = '';
+            document.getElementById("flowerType").selectedIndex = 0;
+            document.querySelector('input[name="paymentType"]:checked').checked = false;
+
+            // Close modal
+            $('#orderModal').modal('hide');
+            alert("Đặt hàng thành công!");
+            return false; // Prevent form submission
+        }
+
+        function addOrderToTable(name, phone, date, email, flowerType, paymentType) {
+            const tableBody = document.querySelector("table tbody");
+            const newRow = document.createElement("tr");
+
+            const rowCount = tableBody.rows.length + 1;
+            newRow.innerHTML = `
+                <th scope="row">${rowCount}</th>
+                <td>${name}</td>
+                <td>${phone}</td>
+                <td>${date}</td>
+                <td>${email}</td>
+                <td>${flowerType}</td>
+                <td>${paymentType.toUpperCase()}</td>
+            `;
+            tableBody.appendChild(newRow);
+        }
+
+        function dongForm() {
+            $('#orderModal').modal('hide');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="../img/mau-banner-dich-vu-dien-hoa-dep-mat-thu-hut-1.jpg" alt="">
+        </header>
+        <div>
+            <nav class="navbar nav-pills navbar-expand">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link">TRANG CHỦ</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#orderModal">ĐẶT MUA HOA</a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link">CÂY XANH VĂN PHÒNG</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">TIN TỨC</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderModalLabel">THÔNG TIN ĐẶT HÀNG NHANH</h5>
+                        <button type="button" class="btn-close" onclick="dongForm()" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="return validateForm();">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Họ và Tên</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số Điện Thoại</label>
+                                <input type="text" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Ngày Đặt</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email của Bạn</label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="flowerType" class="form-label">Chọn Loại Hoa</label>
+                                <select class="form-select" id="flowerType" required>
+                                    <option selected>Hoa Hồng Nhung</option>
+                                    <option>Hoa Hồng Vàng</option>
+                                    <option>Hoa Lan</option>
+                                    <option>Hoa Nhiều Loại</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Loại Thanh Toán</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="paymentType" id="cashPayment"
+                                            value="Tien Mat" required>
+                                        <label class="form-check-label" for="cashPayment">Tiền Mặt</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="paymentType"
+                                            id="bankTransfer" value="Chuyen Khoan" required>
+                                        <label class="form-check-label" for="bankTransfer">Chuyển Khoản</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="dongForm()"
+                            data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-primary" onclick="validateForm()">Đặt Hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <img src="../img/hinh2.webp" alt="" id="anh1">
+            </div>
+            <div class="col-md-10" id="bang1">
+                <table class="table">
+                    <p class="text-center">DANH SÁCH THÔNG TIN ĐẶT HÀNG NHANH</p>
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">HỌ VÀ TÊN</th>
+                            <th scope="col">SỐ ĐIỆN THOẠI</th>
+                            <th scope="col">NGÀY ĐẶT</th>
+                            <th scope="col">EMAIL CỦA BẠN</th>
+                            <th scope="col">LOẠI HOA</th>
+                            <th scope="col">LOẠI THANH TOÁN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Nguyen Luong</td>
+                            <td>0903.128.350</td>
+                            <td>2023-11-08</td>
+                            <td>nguyenluong1603@iuh.edu.vn</td>
+                            <td>Hoa Hồng Vàng</td>
+                            <td>CHUYEN KHOAN</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="text-center">MSSV: 2100025. Lớp: DHKTPM17B. Họ Và Tên: Nguyễn Duy Tiến</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

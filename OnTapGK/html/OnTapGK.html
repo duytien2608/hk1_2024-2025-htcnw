@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: auto;
+            padding: auto;
+            width: 960px;
+        }
+
+        header {
+            box-sizing: border-box;
+            line-height: 20px;
+            height: 140px;
+            background-image: url(../images/nen_header.jpg);
+        }
+
+        .anh1 {
+            width: 100px;
+            float: left;
+        }
+
+        .headerTrai {
+            float: right;
+        }
+
+        .menuHead ul {
+            position: relative;
+            display: flex;
+            text-decoration: none;
+            list-style: none;
+            width: -50px;
+            height: 20px;
+            top: -90px;
+            right: 30px;
+
+        }
+
+        .menuHead ul>li {
+            margin-right: 10px;
+        }
+
+        .menuHead li>a {
+            text-decoration: none;
+        }
+
+        .search {
+            clear: none;
+            position: relative;
+            top: -70px;
+            left: 30px;
+        }
+
+        .menu ul {
+            position: relative;
+            top: -39px;
+            display: flex;
+
+            list-style: none;
+            background-color: #eac54d;
+        }
+
+        .menu ul>li {
+            line-height: 50px;
+            margin-right: 20px;
+
+        }
+
+        .menu li>a {
+            text-decoration: none;
+        }
+
+        .bod {
+            box-sizing: border-box;
+        }
+
+        section {
+            position: relative;
+            top: -55px;
+            width: 70%;
+            line-height: 20px;
+            height: 600px;
+            background-image: linear-gradient(to bottom, #fffddf, white);
+            float: left;
+        }
+
+        aside {
+            position: relative;
+            top: -55px;
+            width: 30%;
+            height: 600px;
+            float: right;
+
+        }
+
+        footer {
+            clear: both;
+            width: 100%;
+            height: 150px;
+            background-color: #be1e2d;
+        }
+
+        .ke {
+            border: 5px solid yellow;
+            position: relative;
+            top: 20px;
+        }
+
+        .muiten {
+            object-fit: cover;
+            width: 5px;
+            height: 5px;
+        }
+
+        .tt1 {
+            background-image: linear-gradient(to top, #fffddf, white);
+            border-style: inherit;
+        }
+
+        .menuSec ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .menuSec ul>li {
+            margin-right: 20px;
+        }
+
+        .menuSec li>a {
+            text-decoration: none;
+        }
+
+        .tt11 {
+            box-sizing: border-box;
+            width: 60%;
+            float: left;
+        }
+
+        .tt12 {
+            float: right;
+        }
+
+        .tt2L {
+            float: left;
+        }
+
+        .tt2R {
+            float: left;
+        }
+
+        .anhfot {
+            float: left;
+            position: relative;
+            top: 35px;
+            right: -5px;
+        }
+
+        .ndfot {
+            position: relative;
+            line-height: 20px;
+            text-align: 50px;
+            float: left;
+            top: 25px;
+            right: -10px;
+        }
+
+        .ndfot p {
+            color: white;
+            font-size: small;
+        }
+
+        .ndfotR {
+            position: relative;
+            line-height: 20px;
+            color: white;
+            right: -20px;
+            top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <header>
+                <div>
+                    <img src="../images/huyhieu.PNG" alt="" class="anh1">
+                    <font color="#cee2ea">
+                        <p>TRANG THONG TIN DIEN TU</p>
+                    </font>
+                    <font color="#f46e67">
+                        <h2>PHỔ BIẾN, GIÁO DỤC PHÁP LUẬT</h2>
+                    </font>
+                </div>
+                <div class="headerTrai">
+                    <nav class="menuHead">
+                        <ul>
+                            <li>Thứ ba, 07/03/2023</li>
+                            <li>|</li>
+                            <li><a href="#">Gửi câu hỏi</a></li>
+                            <li>|</li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Tim kiem">
+                        <input type="submit" value="tim">
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div>
+            <nav class="menu">
+                <ul>
+                    <li><a href=""><img src="../images/nha.PNG" height="40px" vspace="5px" alt="" id="home"></a></li>
+                    <li><a href="">CỔNG TTĐT BỘ CÔNG AN</a></li>
+                    <li><a href="">TIN TỨC</a></li>
+                    <li><a href="">GIỚI THIỆU VĂN BẢN</a></li>
+                    <li><a href="">VĂN BẢN</a></li>
+                    <li><a href="">DỰ THẢO</a></li>
+                    <li><a href="">HỎI ĐÁP PHÁP LUẬT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="bod">
+            <section>
+                <font color="red">
+                    <p>TÌM KIẾM VĂN BẢN</p>
+                </font>
+                <label for="tuKhoa">Từ khoá:</label>
+                <input type="text" name="Từ khoá" id="" size="50px">
+                <br>
+                <label for="lang-select">Bạn yêu thích ngôn ngữ lập trình nào:</label>
+                <select name="lang" id="lang-select">
+                    <option value="">--Chọn loại văn bản--</option>
+                    <option value="csharp">1</option>
+                    <option value="cpp">2</option>
+                    <option value="php">3</option>
+                    <option value="ruby">4</option>
+                    <option value="js">5</option>
+                    <option value="dart">6</option>
+                </select>
+                <br>
+                <label for="cqbh">Cơ quan ban hành</label>
+                <select name="a" id="cqbh">
+                    <option value="1">1</option>
+                </select>
+                <br>
+                <label for="ngayBH">Ngày ban hành</label>
+                <input type="text" name="Ngày ban hành từ" placeholder="Ngày ban hành từ">
+                <input type="text" name="Ngày ban hành đến" placeholder="Ngày ban hành đến" id="">
+                <br>
+                <button type="submit">TÌM KIẾM</button>
+                <br>
+                <hr class="ke">
+
+                <div class="tt1">
+                    <p><img src="../images/muiten.PNG" id="muiten" alt="">Thông tư 67/2022/TT-BCA</p>
+                </div>
+                <div tt11>
+                    <p>Thông tư sửa đổi, bổ sung một số điều của Thông tư số 46/2014/TT-BCA ngày 16/10/2014 của Bộ
+                        trưởng Bộ Công an quy định chi tiết thi hành một số điều của Nghị định số 06/2013/NĐ-CP ngày
+                        09/01/2013 của Chính phủ quy định về bảo vệ cơ quan, doanh nghiệp</p>
+                </div>
+                <div class="tt12">
+                    <p>Ngày ban hành: 30/12/2022 <br>
+                        Ngày hiệu lực: 15/02/2023
+                    </p>
+                </div>
+                <nav class="menuSec">
+                    <ul>
+                        <li><a href=""><img src="../images/tap1.PNG" alt="">
+                                <font color="red">Văn bản liên quan</font>
+                            </a></li>
+                        <li><a href=""><img src="../images/tap2.PNG" alt="">
+                                <font color="red">Thuộc tính</font>
+                            </a></li>
+                        <li><a href="">
+                                <font color="red">Tải về</font>
+                            </a></li>
+                    </ul>
+                </nav>
+
+
+                <div class="tt2">
+                    <p><img src="../images/muiten.PNG" alt="">Thông tư 68/2022/TT-BCA</p>
+                </div>
+                <div class="tt21">
+                    <div class="tt2L">
+                        <p>Thông tư sửa đổi, bổ sung một số điều của Thông tư số 73/2021/TT-BCA, ngày 29/6/2022 của Bộ
+                            trưởng Bộ Công an quy định về mẫu hộ chiếu, giấy thông hành và các biểu mẫu liên quan</p>
+                    </div>
+                    <div class="tt2R">
+                        <p>Ngày ban hành: 31/12/2022 <br>
+                            Ngày hiệu lực: 01/01/2023
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <aside>
+                <div class="as1">
+                    <p>Dự thảo văn bản đang lấy ý kiến</p>
+                    <hr class="ke">
+                    <div>
+                        <p><img src="../images/chuong.PNG" alt="">Ngày hết hạn: <font color="red">28/04/2023</font>
+                        </p>
+                        <br>
+                        <p>Dự thảo Quyết định về tín dụng đối với người chấp hành xong án phạt tù</p>
+                        <br>
+                        <hr class="ke">
+                        <p><img src="../images/chuong.PNG" alt="">Ngày hết hạn: <font color="red">10/03/2023</font>
+                        </p>
+                        <br>
+                        <p>Hồ sơ dự thảo dự án Luật sửa đổi, bổ sung một số điều của Luật Xuất cảnh, nhập cảnh của công
+                            dân Việt Nam</p>
+                        <br>
+                        <hr class="ke">
+                        <br>
+                        <p><img src="../images/chuong.PNG" alt="">Ngày hết hạn: <font color="red">02/04/2023</font>
+                        </p>
+                        <br>
+                        <p>Dự thảo Thông tư quy định công tác nghiên cứu chiến lược Công an nhân dân</p>
+                    </div>
+                </div>
+            </aside>
+            <footer>
+                <div class="anhfot">
+                    <img src="../images/huyhieu.PNG" alt="">
+                </div>
+                <div class="ndfot">
+                    <p>CỔNG TTĐT BỘ CÔNG AN - TRANG THÔNG TIN ĐIỆN TỬ PHỔ BIẾN, GIÁO DỤC PHÁP LUẬT <br>
+                        Địa chỉ: 44 Yết Kiêu - Hoàn Kiếm - Hà Nội. <br>
+                        Điện thoại: 069.2343647. <br>
+                    </p>
+                </div>
+                <div class="ndfotR">
+                    <p>Bản quyền thuộc về Bộ Công an. <br>
+                        Khi sử dụng lại thông tin, đề nghị ghi rõ nguồn <br>
+                        "Cổng TTĐT Bộ Công an" <br>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

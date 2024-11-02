@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Thanh Toán</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnDK").click(function () {
+                $("#myModal").modal();
+            });
+
+            // Cập nhật giá dịch vụ
+            $("#slGia").change(function () {
+                updateTotal();
+            });
+
+            // Cập nhật giá tiền đồ dùng
+            $(".form-check-input").change(function () {
+                updateAccessoryCost();
+            });
+
+            // Xử lý nút thanh toán
+            $("#btnSave").click(function () {
+                validateForm();
+            });
+        });
+
+        function updateAccessoryCost() {
+            let accessoryCost = 0;
+            if ($("#swimwear").is(":checked")) accessoryCost += 20000;
+            if ($("#float").is(":checked")) accessoryCost += 10000;
+            if ($("#goggles").is(":checked")) accessoryCost += 15000;
+            $("#price").val(accessoryCost);
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const servicePrice = parseInt($("#slGia").val()) || 0;
+            const accessoryCost = parseInt($("#price").val()) || 0;
+            const total = servicePrice + accessoryCost;
+            $("#txtTong").val(total);
+        }
+
+        function validateForm() {
+            const studentId = $("#txtMa").val();
+            const fullName = $("#txtTen").val();
+            const email = $("#txtEmail").val();
+
+            const studentIdPattern = /^\d{2}-\d{8}$/;
+            const fullNamePattern = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@iuh\.edu\.vn$/;
+
+            if (!studentIdPattern.test(studentId)) {
+                alert("Mã học viên không hợp lệ (xx-yyyyyyyy).");
+                return;
+            }
+            if (!fullNamePattern.test(fullName)) {
+                alert("Họ tên không hợp lệ. Yêu cầu tối thiểu 2 từ, viết hoa đầu mỗi từ.");
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Email không hợp lệ. Yêu cầu có đuôi @iuh.edu.vn.");
+                return;
+            }
+
+            // Thêm thông tin vào bảng
+            addPaymentToTable();
+            clearForm();
+            $('#myModal').modal('hide');
+        }
+
+        function addPaymentToTable() {
+            const studentId = $("#txtMa").val();
+            const fullName = $("#txtTen").val();
+            const email = $("#txtEmail").val();
+            const serviceText = $("#slGia option:selected").text();
+            const servicePrice = $("#slGia").val();
+            const accessoryCost = $("#price").val();
+            const total = $("#txtTong").val();
+
+            const table = $("#tbds tbody");
+            const row = `
+                <tr>
+                    <td>${table.find("tr").length + 1}</td>
+                    <td>${studentId}</td>
+                    <td>${fullName}</td>
+                    <td>${email}</td>
+                    <td>${servicePrice}</td>
+                    <td>${accessoryCost}</td>
+                    <td>${total}</td>
+                </tr>
+            `;
+            table.append(row);
+        }
+        function clearForm() {
+            $("#txtMa").val('');
+            $("#txtTen").val('');
+            $("#txtEmail").val('');
+            $("#slGia").val('20000');
+            $(".form-check-input").prop('checked', false);
+            $("#price").val('0');
+            $("#txtTong").val('');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container border">
+        <div class="row">
+            <div class="col-12">
+                <img src="../img/image.png" alt="Anh1">
+            </div>
+        </div>
+        <div class="menu">
+            <nav class="navbar">
+                <ul class="nav navbar-navbar-expand">
+                    <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#" id="btnDK" class="nav-link">Đăng ký</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Trợ giúp</a></li>
+                </ul>
+            </nav>
+            <div class="row">
+                <table class="table-bordered table-light table-primary table-hover table table-striped" id="tbds">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã học viên</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Tiền dịch vụ</th>
+                            <th>Tiền đồ dùng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>123456789</td>
+                            <td>Trần Anh</td>
+                            <td>hongquan@iuh.edu.vn</td>
+                            <td>30000</td>
+                            <td>10000</td>
+                            <td>40000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>Thông tin thanh toán</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="txtMa">Mã học viên:</label>
+                                        <input type="text" class="form-control" placeholder="xx-yyyyyyyy" id="txtMa">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtTen">Họ tên:</label>
+                                        <input type="text" class="form-control" placeholder="Nguyen Van A" id="txtTen">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtEmail">Email:</label>
+                                        <input type="text" class="form-control" placeholder="example@iuh.edu.vn"
+                                            id="txtEmail">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="slGia">Dịch vụ:</label>
+                                        <select class="form-control" id="slGia">
+                                            <option value="20000">Bơi</option>
+                                            <option value="30000">Trượt ván</option>
+                                            <option value="50000">Moto nước</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Đồ dùng:</label><br>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="swimwear">
+                                            <label class="form-check-label" for="swimwear">Áo quần bơi</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="float">
+                                            <label class="form-check-label" for="float">Phao</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="goggles">
+                                            <label class="form-check-label" for="goggles">Kính bơi</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Tiền đồ dùng:</label>
+                                        <input type="text" class="form-control" id="price" value="0" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtTong">Tổng tiền:</label>
+                                        <input type="text" class="form-control" id="txtTong" readonly>
+                                    </div>
+                                    <button type="button" id="btnSave" class="btn btn-success btn-block">Thanh
+                                        toán</button>
+                                    <button type="reset" class="btn btn-danger btn-block">Hủy</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <h6>Mã sinh viên:__________</h6>
+                </div>
+                <div class="col-4 col-md-4">
+                    <h6>Họ tên:__________</h6>
+                </div>
+                <div class="col-4 col-md-4">
+                    <h6>Phòng thi:__________</h6>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
