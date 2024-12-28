@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnDK").click(function () {
+                $("#myModal").modal();
+                uploadTongTien()
+            })
+            $(".form-check-input").change(function () {
+                uploadTienDoDung();
+            })
+            $("#giaDV").change(function () {
+                uploadTongTien()
+            })
+
+            $("#btnSave").click(function () {
+                validateForm();
+            })
+        });
+        function uploadTienDoDung() {
+            let tienDoDung = 0;
+            if ($("#swimwear").is(":checked")) tienDoDung += 20000;
+            if ($("#float").is(":checked")) tienDoDung += 30000;
+            if ($("#goggles").is(":checked")) tienDoDung += 50000;
+            $("#tienDoDung").val(tienDoDung);
+            uploadTongTien();
+        }
+        function uploadTongTien() {
+            const tienDichVu = parseInt($("#giaDV").val()) || 0;
+            const tienDoDung = parseInt($("#tienDoDung").val()) || 0;
+            const total = tienDichVu + tienDoDung;
+            $("#tongTien").val(total);
+        }
+        function validateForm() {
+            const maHV = $("#txtMa").val();
+            const hoTen = $("#txtTen").val();
+            const email = $("#txtEmail").val();
+            const dichvu = $("#giaDV option:selected").text();
+            const giaDV = $("#giaDV").val();
+            const giaDoDung = $("#tienDoDung").val();
+            const tongTien = $("#tongTien").val();
+
+            const maHVRegex = /^\d{2}-\d{8}$/;
+            const hoTenRegex = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/; //bat dau bang chu hoa toi thieu 2 chu
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@iuh\.edu\.vn$/;
+
+            if (!maHVRegex.test(maHV)) {
+                alert("Ma hoc vien khong hop le");
+                return;
+            }
+            if (!hoTenRegex.test(hoTen)) {
+                alert("Ho ten khong hop le");
+                return;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Email khong hop le")
+                return;
+            }
+            //Them thong tin vao bang
+            const table = $("#tbds tbody");
+            const row = `
+                <tr>
+                    <td>${table.find("tr").length + 1}</td>
+                    <td>${maHV}</td>
+                    <td>${hoTen}</td>
+                    <td>${email}</td>
+                    <td>${giaDV}</td>
+                    <td>${giaDoDung}</td>
+                    <td>${tongTien}</td>
+                </tr>
+                    `
+            table.append(row);
+            clearForm();
+            $("#myModal").modal("hide");
+        }
+
+        function clearForm() {
+            $("#txtMa").val('');
+            $("#txtTen").val('');
+            $("#txtEmail").val('');
+            $("#giaDV").val('20000');
+            $(".form-check-input").prop('checked', false);
+            $("#tienDoDung").val('0');
+            $("#tongTien").val('');
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container border">
+        <div class="row">
+            <div class="col-12">
+                <img src="../img/" alt="">
+            </div>
+        </div>
+        <div class="menu">
+            <div class="navbar">
+                <ul class="nav navbar-navbar-expand">
+                    <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#" id="btnDK" class="nav-link">Đăng ký</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Trợ giúp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table-bordered table-light table-primary table-hover table table-striped" id="tbds">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã học viên</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Tiền dịch vụ</th>
+                        <th>Tiền đồ dùng</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1234</td>
+                        <td>Duy Tiến</td>
+                        <td>tondz2k3@gmail.com</td>
+                        <td>30000</td>
+                        <td>10000</td>
+                        <td>40000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-4 col-md-4">
+                <h6>Mã sinh viên:________</h6>
+            </div>
+            <div class="col-4 col-md-4">
+                <h6>Họ tên:__________</h6>
+            </div>
+            <div class="col-4 col-md-4">
+                <h6>Phòng thi:________</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5>Thông tin thanh toán</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtMa">Mã học viên:</label>
+                                    <input type="text" class="form-control" placeholder="xx-yyyyyyyy" id="txtMa">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtTen">Họ tên:</label>
+                                    <input type="text" class="form-control" placeholder="Nguyen Duy Tien" id="txtTen">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmail">Email:</label>
+                                    <input type="text" class="form-control" placeholder="aaa@gmail.com" id="txtEmail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="giaDV">Dịch vụ:</label>
+                                    <select class="form-control" id="giaDV">
+                                        <option value="20000">Bơi</option>
+                                        <option value="30000">Trượt ván</option>
+                                        <option value="50000">Motor nư</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Đồ dùng:</label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="swimwear">
+                                        <label for="swimwear" class="form-check-label">Đồ bơi</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="float">
+                                        <label for="float" class="form-check-label">Phao</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="goggles">
+                                        <label for="goggles" class="form-check-label">Kính bơi</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tienDoDung">Tiền đồ dùng:</label>
+                                    <input type="text" class="form-control" id="tienDoDung" value="0" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tongTien">Tổng tiền:</label>
+                                    <input type="text" class="form-control" id="tongTien" value="0" readonly>
+                                </div>
+                                <button type="button" id="btnSave" class="btn btn-success btn-block">Thanh toán</button>
+                                <button type="reset" class="btn btn-danger btn-block">Huỷ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
